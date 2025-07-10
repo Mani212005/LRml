@@ -1,0 +1,5 @@
+# config.py
+
+TEST_SIZE = 0.2
+RANDOM_STATE = 42
+CV_FOLDS = 5
