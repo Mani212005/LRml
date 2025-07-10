@@ -3,7 +3,7 @@
 This is a Streamlit web application that allows users to train a Linear Regression model with customizable data preprocessing, model selection, and hyperparameter tuning. It provides interactive visualizations and performance metrics to help users understand their data and model.
 
 
-https://github.com/Mani212005/LRml/blob/f1f36409977a07b992a764a0ef4b816ae844af42/Screenshot%202025-07-10%20150331.png
+![Image_Alt](https://github.com/Mani212005/LRml/blob/472332cbbf84af53793f21f3267f6fc12561ab8f/Screenshot%202025-07-10%20150331.png)
 
 ## Features
 
