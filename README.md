@@ -87,7 +87,11 @@ This is a Streamlit web application that allows users to train a Linear Regressi
     ```
 
     This will open the application in your web browser.
-
+    
+    ![Image_Alt](https://github.com/Mani212005/LRml/blob/e5bd028b1f6e17933dcafc338177f8564873e83a/2.png)
+    ![Image_Alt](https://github.com/Mani212005/LRml/blob/e5bd028b1f6e17933dcafc338177f8564873e83a/3.png)
+    ![Image_Alt](https://github.com/Mani212005/LRml/blob/e5bd028b1f6e17933dcafc338177f8564873e83a/4.png)
+    ![Image_Alt](https://github.com/Mani212005/LRml/blob/e5bd028b1f6e17933dcafc338177f8564873e83a/5.png)
 ## Future Enhancements (Ideas)
 
 -   More advanced outlier detection methods.
