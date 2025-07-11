@@ -93,6 +93,8 @@ This is a Streamlit web application that allows users to train a Linear Regressi
     ![Image_Alt](https://github.com/Mani212005/LRml/blob/e5bd028b1f6e17933dcafc338177f8564873e83a/4.png)
     ![Image_Alt](https://github.com/Mani212005/LRml/blob/e5bd028b1f6e17933dcafc338177f8564873e83a/5.png)
     ![Image_Alt](https://github.com/Mani212005/LRml/blob/9184712cb6b65ca3da83ef2c988aedad1e712db9/6.png)
+    ![Image_Alt](https://github.com/Mani212005/LRml/blob/430ffb3dea65480c71b1a04c60df0eed24a46147/7.png)
+    ![Image_Alt](https://github.com/Mani212005/LRml/blob/430ffb3dea65480c71b1a04c60df0eed24a46147/8.png)
     
 ## Future Enhancements (Ideas)
 
