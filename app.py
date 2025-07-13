@@ -12,7 +12,22 @@ st.write("Welcome! This app helps you train a Linear Regression model with custo
 
 # Step 1: Dataset Upload
 st.header("1. Upload Your Dataset 📂")
+
+# Add a selection for sample datasets
+sample_datasets = {
+    "None": None,
+    "Boston Housing": "https://raw.githubusercontent.com/selva86/datasets/master/BostonHousing.csv",
+    "California Housing": "https://raw.githubusercontent.com/ageron/handson-ml/master/datasets/housing/housing.csv",
+    "Medical Insurance Costs": "https://raw.githubusercontent.com/stedy/Machine-Learning-with-R-datasets/master/insurance.csv",
+    "Fish Market": "https://raw.githubusercontent.com/Ankit152/Fish-Market/main/Fish.csv",
+    "Salary Data": "https://raw.githubusercontent.com/saikrishnapotluri/salary_Data.csv/master/Salary_Data.csv"
+}
+selected_dataset = st.selectbox("Or choose a sample dataset", list(sample_datasets.keys()))
+
 uploaded_file = st.file_uploader("Choose a CSV file", type="csv", key="file_uploader")
+
+if selected_dataset != "None":
+    uploaded_file = sample_datasets[selected_dataset]
 
 if uploaded_file is not None:
     # Add a reset button
