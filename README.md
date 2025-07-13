@@ -2,6 +2,9 @@
 
 This is a Streamlit web application that allows users to train a Linear Regression model with customizable data preprocessing, model selection, and hyperparameter tuning. It provides interactive visualizations and performance metrics to help users understand their data and model.
 
+
+![Image_Alt](https://github.com/Mani212005/LRml/blob/472332cbbf84af53793f21f3267f6fc12561ab8f/Screenshot%202025-07-10%20150331.png)
+
 ## Features
 
 ### 1. Dataset Upload & Preprocessing
@@ -84,7 +87,15 @@ This is a Streamlit web application that allows users to train a Linear Regressi
     ```
 
     This will open the application in your web browser.
-
+    
+    ![Image_Alt](https://github.com/Mani212005/LRml/blob/e5bd028b1f6e17933dcafc338177f8564873e83a/2.png)
+    ![Image_Alt](https://github.com/Mani212005/LRml/blob/e5bd028b1f6e17933dcafc338177f8564873e83a/3.png)
+    ![Image_Alt](https://github.com/Mani212005/LRml/blob/e5bd028b1f6e17933dcafc338177f8564873e83a/4.png)
+    ![Image_Alt](https://github.com/Mani212005/LRml/blob/e5bd028b1f6e17933dcafc338177f8564873e83a/5.png)
+    ![Image_Alt](https://github.com/Mani212005/LRml/blob/9184712cb6b65ca3da83ef2c988aedad1e712db9/6.png)
+    ![Image_Alt](https://github.com/Mani212005/LRml/blob/430ffb3dea65480c71b1a04c60df0eed24a46147/7.png)
+    ![Image_Alt](https://github.com/Mani212005/LRml/blob/430ffb3dea65480c71b1a04c60df0eed24a46147/8.png)
+    
 ## Future Enhancements (Ideas)
 
 -   More advanced outlier detection methods.
