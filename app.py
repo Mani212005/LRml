@@ -64,7 +64,9 @@ if selected_dataset != "None":
 if uploaded_file is not None:
     # Add a reset button
     if st.button("Reset App 🔄", key="reset_button"):
-        st.session_state.clear()
+        for key in ['feature_cols', 'target_col']:
+            if key in st.session_state:
+                del st.session_state[key]
         st.rerun()
 
     with st.expander("CSV Configuration & Preprocessing Options ⚙️", expanded=True):
@@ -82,6 +84,21 @@ if uploaded_file is not None:
         with st.spinner("Loading data..."):
             df = pd.read_csv(uploaded_file, delimiter=delimiter, encoding=encoding)
         
+        # Improve column names for Boston Housing dataset
+        if selected_dataset in config.DATASET_COLUMNS:
+            dataset_config = config.DATASET_COLUMNS[selected_dataset]
+            df.columns = dataset_config["new_cols"]
+            target_col_name = dataset_config["target_col"]
+            
+            # Reorder columns to place target column at the end
+            cols = df.columns.tolist()
+            cols.remove(target_col_name)
+            cols.append(target_col_name)
+            df = df[cols]
+            
+            # Pre-populate target selection
+            st.session_state.target_col = cols[-1]
+
         numeric_cols = df.select_dtypes(include=['number']).columns.tolist()
         categorical_cols = df.select_dtypes(exclude=['number']).columns.tolist()
 
@@ -130,8 +147,8 @@ if uploaded_file is not None:
                     with st.expander("Categorical Feature Handling 🗂️"):
                         selected_categorical_cols = st.multiselect("Select categorical columns for One-Hot Encoding", categorical_cols)
 
-                feature_cols = st.multiselect("Select feature columns (X) (Numeric and One-Hot Encoded Categorical)", numeric_cols + selected_categorical_cols)
-                target_col = st.selectbox("Select target column (y) (Numeric Only)", numeric_cols)
+                target_col = st.selectbox("Select target column (y) (Numeric Only)", numeric_cols, index=numeric_cols.index(st.session_state.get('target_col')) if st.session_state.get('target_col') in numeric_cols else 0)
+                feature_cols = st.multiselect("Select feature columns (X) (Numeric and One-Hot Encoded Categorical)", [col for col in numeric_cols if col != target_col] + selected_categorical_cols)
 
                 # Step 3: Train Model
                 st.header("3. Train Linear Regression Model 🧠")
