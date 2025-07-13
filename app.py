@@ -1,6 +1,8 @@
 
 import streamlit as st
 import pandas as pd
+import os
+from pathlib import Path
 import plotly.express as px
 from ml import train_model, get_metrics, create_plots
 import config
@@ -25,6 +27,36 @@ sample_datasets = {
 selected_dataset = st.selectbox("Or choose a sample dataset", list(sample_datasets.keys()))
 
 uploaded_file = st.file_uploader("Choose a CSV file", type="csv", key="file_uploader")
+
+# Add a file uploader for ML reports
+ml_report_file = st.file_uploader("Upload ML Report (Text, PDF)", type=["txt", "md", "pdf"], key="ml_report_uploader")
+
+if ml_report_file is not None:
+    st.subheader("Uploaded ML Report Content:")
+    # For text files, read and display content
+    if ml_report_file.type == "text/plain" or ml_report_file.type == "text/markdown":
+        st.text(ml_report_file.read().decode("utf-8"))
+    # For PDF files, provide a link to download or display a message
+    elif ml_report_file.type == "application/pdf":
+        st.write("PDF file uploaded. You can download it to view:")
+        st.download_button(
+            label="Download PDF Report",
+            data=ml_report_file,
+            file_name=ml_report_file.name,
+            mime="application/pdf"
+        )
+    else:
+        st.warning("Unsupported file type for ML Report. Please upload a text, markdown, or PDF file.")
+
+    # Save the uploaded file to a directory
+    save_folder = Path("uploaded_reports")
+    save_folder.mkdir(exist_ok=True) # Create the directory if it doesn't exist
+
+    file_path = save_folder / ml_report_file.name
+    with open(file_path, "wb") as f:
+        f.write(ml_report_file.getbuffer())
+    st.success(f"ML Report saved to {file_path}")
+
 
 if selected_dataset != "None":
     uploaded_file = sample_datasets[selected_dataset]
